@@ -41,7 +41,7 @@ By applying the above functions to all pixels for digit 0:
 
 Reshaping the mean and variance arrays produces visual diagrams that reveal these patterns.
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_3.jpg" alt="YCbCr Color Space Diagram" style="width: 200px; height: 400px;"/>
+   <img src="./assets/Screenshot_3.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 200px;"/>
 </div>
 
 ---
