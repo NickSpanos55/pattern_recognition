@@ -10,7 +10,7 @@ We loaded the data using the function `np.loadtxt` and extracted only the first 
 From the training dataset, we selected sample number 131. After reshaping it into a `16x16` matrix, it appears as follows:
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
 
-   <img src="./assets/Screenshot_1.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_1.jpg" alt="YCbCr Color Space Diagram" style="width: 200px; height: 200px;"/>
 </div>
 
 ---
@@ -41,7 +41,7 @@ By applying the above functions to all pixels for digit 0:
 
 Reshaping the mean and variance arrays produces visual diagrams that reveal these patterns.
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_3.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_3.jpg" alt="YCbCr Color Space Diagram" style="width: 200px; height: 400px;"/>
 </div>
 
 ---
@@ -66,7 +66,7 @@ To classify sample number 101:
 The first command gives us the L2 Norm of the final matrix of distances between the sample and the Class Means. The L2 Norm corresponds to the Euclidean Distance. In the second command, we compute the Class Index that corresponds to the smallest distance, representing the predicted digit. Specifically, if we visualize sample 101, it appears as follows:
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_5.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_5.jpg" alt="YCbCr Color Space Diagram" style="width: 200px; height: 200px;"/>
 </div>
 
 The Euclidean Distance classifier explained earlier successfully classifies the above sample into class 0.
@@ -82,7 +82,7 @@ The final Accuracy of our classifier is **81.415%**.
 The Scikit-Learn library requires classifiers to be classes implementing the `fit`, `predict`, and `score` functions. By incorporating the above functions and procedures, we created the following class (compatible with sklearn):
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_5.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_5.jpg" alt="YCbCr Color Space Diagram" style="width: 200px; height: 200px;"/>
 </div>
 
 ### Step 13
@@ -95,10 +95,11 @@ We observe distinct clusters for different classes in the respective regions of 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
    <img src="./assets/Screenshot_6.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
 </div>
+
 #### c) For the Learning Curve, we use the `learning_curve` function from sklearn, which takes the classifier, data, and Cross-Validation Folds as input. The resulting learning curve is as follows:
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_7.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_7.jpg" alt="YCbCr Color Space Diagram" style="width: 600px; height: 400px;"/>
 </div>
 
 The classifier begins to "learn" the task when the Train Set reaches approximately 2000 samples. Beyond that, the score stabilizes around **86%**.
@@ -119,21 +120,21 @@ To implement the Custom Naive Bayes Classifier compatible with scikit-learn:
 - **Fit**: Computes mean values, variances, and a-priori probabilities for each class from the input data. It also supports a `unit_variance` mode, where the variance matrix is set to the identity matrix.
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_8.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_8.jpg" alt="YCbCr Color Space Diagram" style="width: 600px; height: 400px;"/>
 </div>
 
 - **Predict**: Assumes independent features for samples. Using simple multiplication, we calculate the a-posteriori probabilities. Each pixel of a digit follows a Gaussian distribution, defined by the mean and variance calculated during fitting. With `multivariate_normal` (allowing singular covariance matrices), we compute probabilities using a vector of variances, converted internally to a diagonal matrix. The class with the highest a-posteriori probability is the predicted one.
 
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_9.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_9.jpg" alt="YCbCr Color Space Diagram" style="width: 600px; height: 400px;"/>
 </div>
 
 - **Score**: Using the `score` method, the Custom Naive Bayes achieved **74.79%** on the Test Set, while sklearn's Naive Bayes achieved **71.948%**. The custom implementation performed better as it supports zero variances, unlike sklearn, which applies smoothing.
 
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_10.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_10.jpg" alt="YCbCr Color Space Diagram" style="width: 600px; height: 400px;"/>
 </div>
 
 ### Step 16
@@ -165,7 +166,7 @@ For PyTorch compatibility, data was loaded as Pytorch DataLoader batches of size
 - Training utilized AdamW optimizer, CrossEntropyLoss, and LambdaLR scheduler (λ=0.95). During each epoch, `running_loss` was updated every 100 batches for Train and Validation Loss. Over 30 epochs, Train and Validation Loss remained low, avoiding overfitting. Example from the last 10 epochs:
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin: 0 auto;">
-   <img src="./assets/Screenshot_11.jpg" alt="YCbCr Color Space Diagram" style="width: 400px; height: 400px;"/>
+   <img src="./assets/Screenshot_11.jpg" alt="YCbCr Color Space Diagram" style="width: 300px; height: 200px;"/>
 </div>
 
 The model achieved **93.124%** on the Test Set.
