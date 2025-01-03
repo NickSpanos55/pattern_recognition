@@ -42,4 +42,3 @@ Explore the following projects included in this repository:
 
 ---
 
-Feel free to explore, contribute, or provide feedback on these projects! 😊
